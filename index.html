@@ -21,6 +21,9 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         header {
@@ -28,10 +31,20 @@
             color: white;
             padding: 2rem 0;
             text-align: center;
+            width: 100%;
         }
 
         section {
             padding: 40px 0;
+            width: 100%;
+        }
+
+        .about-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            justify-content: center;
+            width: 100%;
         }
 
         #about {
@@ -41,7 +54,7 @@
             margin-bottom: 40px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             text-align: center;
-            position: relative;
+            max-width: 600px;
         }
 
         #about img {
@@ -51,13 +64,15 @@
             margin-bottom: 20px;
         }
 
-        #about::after {
-            content: url('favicon.ico');
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            width: 32px;
-            height: 32px;
+        .icon-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .icon-container img {
+            width: 50px;
+            height: 50px;
         }
 
         .projects {
@@ -90,14 +105,19 @@
     </header>
     <div class="container">
         <!-- Hakkımda Bölümü Başlangıç -->
-        <section id="about">
-            <img src="profil.jpg" alt="Mehmet Can Kara">
-            <h2>Hakkımda</h2>
-            <p>Merhaba, ben Mehmet Can Kara. 2001 yılında Trabzon'da doğdum. Bilgisayar Mühendisliği son sınıf öğrencisiyim. 
-            Mobil uygulama geliştirme ve yapay zeka alanlarında çalışıyorum. Python, Java, C++ ve SQL dillerine hakimim. 
-            Yapay zeka ile ilgili projeler geliştiriyorum ve bitirme projemde makine öğrenmesi ile balık ağırlığı tahmini ve 
-            sınıflandırması üzerine çalışıyorum.</p>
-        </section>
+        <div class="about-container">
+            <section id="about">
+                <img src="profil.jpg" alt="Mehmet Can Kara">
+                <h2>Hakkımda</h2>
+                <p>Merhaba, ben Mehmet Can Kara. 2001 yılında Trabzon'da doğdum. Bilgisayar Mühendisliği son sınıf öğrencisiyim. 
+                Mobil uygulama geliştirme ve yapay zeka alanlarında çalışıyorum. Python, Java, C++ ve SQL dillerine hakimim. 
+                Yapay zeka ile ilgili projeler geliştiriyorum ve bitirme projemde makine öğrenmesi ile balık ağırlığı tahmini ve 
+                sınıflandırması üzerine çalışıyorum.</p>
+            </section>
+            <div class="icon-container">
+                <img src="favicon.ico" alt="Icon">
+            </div>
+        </div>
         <!-- Hakkımda Bölümü Bitiş -->
 
         <!-- Projelerim Bölümü Başlangıç -->
