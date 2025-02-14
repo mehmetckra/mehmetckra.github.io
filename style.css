@@ -56,3 +56,59 @@ section {
     gap: 20px;
     padding: 40px 0;
 }
+
+/* Personal Info Section */
+.personal-info {
+    background: var(--card-bg);
+    border-radius: 8px;
+    padding: 30px;
+    margin: 20px 0;
+}
+
+.personal-info h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+/* Skills Section */
+.skills {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.skill-item {
+    background: var(--card-bg);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Education & Certificates */
+.education, .certificates {
+    margin: 30px 0;
+}
+
+.education-item, .certificate-item {
+    background: var(--card-bg);
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Contact Information */
+.contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.contact-item {
+    background: var(--card-bg);
+    padding: 10px 20px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
