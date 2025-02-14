@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mehmet Can KARA</title>
+    <title>Portfolyo - Mehmet Can Kara</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <style>
         * {
@@ -28,15 +28,6 @@
             color: white;
             padding: 2rem 0;
             text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        header img {
-            width: 32px;
-            height: 32px;
         }
 
         section {
@@ -50,6 +41,7 @@
             margin-bottom: 40px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             text-align: center;
+            position: relative;
         }
 
         #about img {
@@ -57,6 +49,15 @@
             height: 150px;
             border-radius: 50%;
             margin-bottom: 20px;
+        }
+
+        #about::after {
+            content: url('favicon.ico');
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 32px;
+            height: 32px;
         }
 
         .projects {
@@ -85,7 +86,6 @@
 </head>
 <body>
     <header>
-        <img src="favicon.ico" alt="Icon">
         <h1>Mehmet Can Kara - Bilgisayar Mühendisi</h1>
     </header>
     <div class="container">
