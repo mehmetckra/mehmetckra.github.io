@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolyo - Mehmet Can Kara</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <title>Mehmet Can KARA</title>
+    <link rel="icon" type="image/png" href="logo.png">
     <style>
         * {
             margin: 0;
@@ -36,28 +36,53 @@
 
         #about {
             background: white;
-            border-radius: 8px;
-            padding: 20px;
+            border-radius: 12px;
+            padding: 40px;
             margin-bottom: 40px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
             text-align: center;
             position: relative;
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #about:hover {
+            transform: translateY(-5px);
         }
 
         #about img {
-            width: 150px;
-            height: 150px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            border: 4px solid #f5f5f5;
+            transition: transform 0.3s ease;
+            object-fit: cover;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
 
-        #about::after {
-            content: url('favicon.ico');
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            width: 32px;
-            height: 32px;
+        #about img:hover {
+            transform: scale(1.05);
+        }
+
+        #about h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        #about p {
+            color: #666;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         .projects {
@@ -69,10 +94,27 @@
 
         .project-card {
             background: white;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            text-align: center;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            text-align: left;
+            transition: transform 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-content {
+            flex-grow: 1;
+        }
+
+        .progress-wrapper {
+            margin-top: auto;
+            padding-top: 20px;
         }
 
         .project-card img {
@@ -80,7 +122,123 @@
             height: 400px;
             object-fit: cover;
             border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .project-card h3 {
+            color: #2c3e50;
             margin-bottom: 15px;
+            font-size: 1.4rem;
+            padding-bottom: 15px;
+            position: relative;
+        }
+
+        .project-card h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(to right, #3498db, #2ecc71);
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+
+        .project-card:hover h3::after {
+            width: 100px;
+        }
+
+        .project-card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            padding-top: 5px;
+        }
+
+        .progress-container {
+            margin-top: 0;
+            background: #f0f0f0;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 8px;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(to right, #3498db, #2ecc71);
+            transition: width 1s ease-in-out;
+        }
+
+        .project-status {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .footer img {
+            width: 126px;
+            height: 192px;
+            margin-bottom: 10px;
+        }
+
+        .footer p {
+            color: #2c3e50;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #projects > h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 40px;
+            position: relative;
+            padding: 20px 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        #projects > h2::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 3px;
+            background: linear-gradient(to right, #3498db, #2ecc71);
+            border-radius: 2px;
+        }
+
+        #projects > h2::after {
+            content: '{ }';
+            position: absolute;
+            top: -10px;
+            right: 0;
+            font-family: 'Consolas', monospace;
+            color: #3498db;
+            opacity: 0.2;
+            font-size: 2rem;
         }
     </style>
 </head>
@@ -105,23 +263,65 @@
             <h2>Projelerim</h2>
             <div class="projects">
                 <div class="project-card">
-                    <img src="balik_proje.jpg" alt="Balık Ağırlığı Tahmini">
-                    <h3>Makine Öğrenmesi ile Balık Ağırlığı Tahmini</h3>
-                    <p>Bu proje, makine öğrenmesi teknikleri kullanarak canlı balıkların su altındaki ağırlığını tahmin etmeyi ve sınıflandırmayı amaçlamaktadır. TÜBİTAK 2209-A Üniversite Öğrencileri Araştırma Projeleri Destekleme Programı kapsamında başvurusu yapılmıştır. Ayrıca, proje kapsamında bilimsel dergilerde makaleler yayımlanması başvuru yapılmıştır ve TEKNOFEST yarışmasına başvuru gerçekleştirilmiştir. Balık yetiştiriciliğinde ekonomik katkı sağlamak, projenin temel hedeflerinden biridir.</p>
+                    <div class="project-content">
+                        <img src="balik_proje.jpg" alt="Balık Ağırlığı Tahmini">
+                        <h3>Makine Öğrenmesi ile Balık Ağırlığı Tahmini</h3>
+                        <p>Bu proje, makine öğrenmesi teknikleri kullanarak canlı balıkların su altındaki ağırlığını tahmin etmeyi ve sınıflandırmayı amaçlamaktadır. TÜBİTAK 2209-A Üniversite Öğrencileri Araştırma Projeleri Destekleme Programı kapsamında başvurusu yapılmıştır. Ayrıca, proje kapsamında bilimsel dergilerde makaleler yayımlanması başvuru yapılmıştır ve TEKNOFEST yarışmasına başvuru gerçekleştirilmiştir. Balık yetiştiriciliğinde ekonomik katkı sağlamak, projenin temel hedeflerinden biridir.</p>
+                    </div>
+                    <div class="progress-wrapper">
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 60%"></div>
+                        </div>
+                        <div class="project-status">
+                            <span>Geliştirme Aşaması</span>
+                            <span>60%</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="project-card">
-                    <img src="ruya_yorumu.jpg" alt="Yapay Zeka ile Rüya Yorumu">
-                    <h3>Yapay Zeka ile Rüya Yorumu</h3>
-                    <p>Kullanıcıların rüyalarını yapay zeka ile yorumlayan ve anlamlı bir yorum sunan bir proje.</p>
+                    <div class="project-content">
+                        <img src="ruya_yorumu.jpg" alt="Yapay Zeka ile Rüya Yorumu">
+                        <h3>Yapay Zeka ile Rüya Yorumu</h3>
+                        <p>Kullanıcıların rüyalarını yapay zeka ile yorumlayan ve anlamlı bir yorum sunan gelişmiş bir NLP projesi. GPT tabanlı özel model kullanılmaktadır.</p>
+                    </div>
+                    <div class="progress-wrapper">
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 40%"></div>
+                        </div>
+                        <div class="project-status">
+                            <span>Geliştirme Aşaması</span>
+                            <span>40%</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="project-card">
-                    <img src="diyabet_sistemi.jpg" alt="Diyabet Takip Sistemi">
-                    <h3>Diyabet Takip Sistemi</h3>
-                    <p>Doktor ve hastaların giriş yaparak hastanın beslenme, egzersiz planlarını, diyet listesi, şeker değerleri, laboratuvar sonuçları, randevu alma, randevularını görme gibi çeşitli bilgileri görebilidiği ve doktoru tarafından beslenme planı oluşturma, egzersiz planı oluşturma hastanın hangi tür diabet hastası olduğunu görme ve buna göre reçete oluşturma gibi bir den çok işlemi yapabildiği bir sistem.</p>
+                    <div class="project-content">
+                        <img src="diyabet_sistemi.jpg" alt="Diyabet Takip Sistemi">
+                        <h3>Diyabet Takip Sistemi</h3>
+                        <p>Doktor ve hastaların giriş yaparak hastanın beslenme, egzersiz planlarını, diyet listesi, şeker değerleri, laboratuvar sonuçları, randevu alma, randevularını görme gibi çeşitli bilgileri görebilidiği ve doktoru tarafından beslenme planı oluşturma, egzersiz planı oluşturma hastanın hangi tür diabet hastası olduğunu görme ve buna göre reçete oluşturma gibi bir den çok işlemi yapabildiği bir sistem.</p>
+                    </div>
+                    <div class="progress-wrapper">
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 90%"></div>
+                        </div>
+                        <div class="project-status">
+                            <span>Geliştirme Aşaması</span>
+                            <span>90%</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
         <!-- Projelerim Bölümü Bitiş -->
+
+        <!-- Footer Başlangıç -->
+        <div class="footer">
+            <div class="footer-content">
+                <img src="logo.png" alt="Logo">
+                <p>mehmetckra.me</p>
+            </div>
+        </div>
+        <!-- Footer Bitiş -->
     </div>
 </body>
 </html>
