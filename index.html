@@ -261,6 +261,110 @@
             color: #3498db;
             margin-right: 5px;
         }
+
+        .certificates {
+            padding: 40px 0;
+        }
+
+        .certificate-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px 0;
+        }
+
+        .certificate-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .certificate-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .certificate-card h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(to right, #3498db, #2ecc71);
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+
+        .certificate-card:hover h3::after {
+            width: 80px;
+        }
+
+        .certificate-info {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .certificate-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .certificate-type {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.2rem;
+            color: #3498db;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .certificate-type span {
+            font-size: 0.8rem;
+            background: rgba(52, 152, 219, 0.1);
+            padding: 4px 8px;
+            border-radius: 4px;
+            color: #2c3e50;
+        }
+
+        #certificates > h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 40px;
+            position: relative;
+            padding: 20px 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        #certificates > h2::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 3px;
+            background: linear-gradient(to right, #3498db, #2ecc71);
+            border-radius: 2px;
+        }
     </style>
 </head>
 <body>
@@ -317,7 +421,7 @@
                 <div class="project-card">
                     <div class="project-content">
                         <img src="diyabet_sistemi.jpg" alt="Diyabet Takip Sistemi">
-                        <h3>Diyabet Takip Sistemi</h3>
+                        <h3>Diabet Takip Sistemi</h3>
                         <p>Doktor ve hastaların giriş yaparak hastanın beslenme, egzersiz planlarını, diyet listesi, şeker değerleri, laboratuvar sonuçları, randevu alma, randevularını görme gibi çeşitli bilgileri görebilidiği ve doktoru tarafından beslenme planı oluşturma, egzersiz planı oluşturma hastanın hangi tür diabet hastası olduğunu görme ve buna göre reçete oluşturma gibi bir den çok işlemi yapabildiği bir sistem.</p>
                     </div>
                     <div class="progress-wrapper">
@@ -333,6 +437,41 @@
             </div>
         </section>
         <!-- Projelerim Bölümü Bitiş -->
+
+        <!-- Sertifikalarım Bölümü Başlangıç -->
+        <section id="certificates">
+            <h2>Sertifikalarım</h2>
+            <div class="certificate-grid">
+                <div class="certificate-card">
+                    <div class="certificate-type">
+                        👥 <span>Yüz yüze</span>
+                    </div>
+                    <h3>Python Programlama</h3>
+                    <div class="certificate-info">
+                        BTK Akademi tarafından verilen Üniversite Öğrencilerine Yönelik 66 Saat Python programlama dili eğitimi sertifikası.
+                    </div>
+                    <div class="certificate-meta">
+                        <span>Veren Kurum: BTK Akademi</span>
+                        <span>2023</span>
+                    </div>
+                </div>
+
+                <div class="certificate-card">
+                    <div class="certificate-type">
+                        💻 <span>Online</span>
+                    </div>
+                    <h3>Veri Bilimi İçin <br />Python ve Tenserflow</h3>
+                    <div class="certificate-info">
+                        BTK Akademi platformunda verilen veri bilimi kursu sertifikası
+                    </div>
+                    <div class="certificate-meta">
+                        <span>Veren Kurum: BTK Akademi</span>
+                        <span>2023</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Sertifikalarım Bölümü Bitiş -->
 
         <!-- Sayaç - Footer'dan önce ekleyin -->
         <div class="visitor-counter">
@@ -352,17 +491,23 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // LocalStorage'dan mevcut sayıyı al veya 0 olarak başlat
-            let visitorCount = localStorage.getItem('visitorCount') || 0;
+            // Ziyaretçi için unique ID kontrolü
+            const visitorId = localStorage.getItem('visitorId');
             
-            // Sayfa yüklendiğinde sayıyı bir artır
-            visitorCount = parseInt(visitorCount) + 1;
+            if (!visitorId) {
+                // Yeni ziyaretçi - unique ID oluştur
+                const newVisitorId = 'visitor_' + Date.now() + Math.random().toString(36).substr(2, 9);
+                localStorage.setItem('visitorId', newVisitorId);
+                
+                // Ziyaretçi sayısını artır
+                let visitorCount = parseInt(localStorage.getItem('visitorCount') || 0);
+                visitorCount += 1;
+                localStorage.setItem('visitorCount', visitorCount);
+            }
             
-            // Yeni sayıyı LocalStorage'a kaydet
-            localStorage.setItem('visitorCount', visitorCount);
-            
-            // Sayıyı ekranda göster
-            document.getElementById('visitorCount').textContent = visitorCount;
+            // Mevcut ziyaretçi sayısını göster
+            const currentCount = localStorage.getItem('visitorCount') || 0;
+            document.getElementById('visitorCount').textContent = currentCount;
         });
     </script>
 </body>
